@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Magellan GPS Update</title>
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
+    body, html {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       scroll-behavior: smooth;
       line-height: 1.6;
@@ -96,6 +95,10 @@
       margin-bottom: 10px;
     }
 
+    .hero p {
+      font-size: 1.2rem;
+    }
+
     .btn {
       background-color: #00bcd4;
       color: white;
@@ -128,25 +131,35 @@
       margin: auto;
     }
 
+    .section ul {
+      padding-left: 20px;
+      line-height: 2;
+    }
+
     /* Fixed Image Section */
     .fixed-image-section {
-      background: url('gps image.jpg') no-repeat center center fixed;
+      background: url('gpsupdate.jpg') no-repeat center center fixed;
       background-size: cover;
       height: 400px;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
     }
 
-    .fixed-image-section h1 {
-      background-color: white;
+    .fixed-image-section .features-box {
+      background-color: rgba(255, 255, 255, 0.85);
       color: #333;
-      padding: 20px 40px;
-      font-size: 3rem;
-      border-radius: 10px;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 900px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      text-align: center;
+    }
+
+    .fixed-image-section .features-box p {
+      margin: 10px 0;
+      font-size: 1.1rem;
     }
 
     /* Footer */
@@ -196,17 +209,15 @@
     </div>
   </section>
 
-  <!-- Fixed Image Section -->
+  <!-- Fixed Image Feature Section -->
   <section class="fixed-image-section">
-    <h4>🛰️ Stay current with the latest maps, including new roads, updated speed limits, and recent points of interest.<br>
-
-🚦 Avoid traffic jams with real-time traffic updates that help you reroute and reach your destination faster.<br>
-
-🧭 Get improved navigation accuracy through firmware updates that enhance GPS performance and stability.<br>
-
-🚛 Benefit from vehicle-specific routing, perfect for RVs and trucks to avoid restricted or unsafe roads.<br>
-
-🌍 Access enhanced visual guidance like 3D landmarks and lane assist, making complex routes easier to follow.</h4>
+    <div class="features-box">
+      <p>🛰️ Stay current with updated maps, roads, and POIs.</p>
+      <p>🚦 Avoid traffic with real-time rerouting alerts.</p>
+      <p>🧭 Enjoy better accuracy with regular firmware updates.</p>
+      <p>🚛 RV/truck-specific routing keeps your journey safe.</p>
+      <p>🌍 Navigate with 3D landmarks and lane assist tools.</p>
+    </div>
   </section>
 
   <!-- Features Section -->
@@ -238,7 +249,7 @@
     <p>&copy; 2025 Magellan GPS. All rights reserved.</p>
   </footer>
 
-  <!-- JS for Responsive Menu -->
+  <!-- JavaScript for Menu Toggle -->
   <script>
     function toggleMenu() {
       const navLinks = document.getElementById("nav-links");
