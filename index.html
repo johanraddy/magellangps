@@ -1,248 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magellan GPS Update</title>
-    <style>
-        /* Reset some default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Magellan GPS Update</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body, html {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
-            line-height: 1.6;
-        }
-.hero {
-    background: url('pppp.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
+    html, body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
 
-        
-        /* Background Image */
-        .hero {
-            background: url('https://images.unsplash.com/photo-1549921296-3a6b49faff0c') no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 15px 20px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-        /* Navbar Styles */
-        nav {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 15px 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
 
-        nav ul li a:hover {
-            color: #00bcd4;
-        }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
 
-        /* Responsive Nav */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-                display: none;
-            }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+      }
 
-            nav ul.show {
-                display: flex;
-            }
+      nav ul.show {
+        display: flex;
+      }
 
-            .menu-toggle {
-                display: block;
-                cursor: pointer;
-            }
-        }
+      .menu-toggle {
+        display: block;
+      }
+    }
 
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-        }
+    /* Hero Section */
+    .hero {
+      background: url('pppp.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
 
-        /* Content Section */
-        .section {
-            padding: 80px 20px;
-            background-color: #f5f5f5;
-        }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
 
-        .section h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    .btn {
+      background-color: #00bcd4;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      text-decoration: none;
+      margin-top: 20px;
+      display: inline-block;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+    .btn:hover {
+      background-color: #008c9e;
+    }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 30px 20px;
-            text-align: center;
-        }
+    /* Section */
+    .section {
+      padding: 80px 20px;
+      background-color: #f5f5f5;
+    }
 
-        .btn {
-            background-color: #00bcd4;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-decoration: none;
-        }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        .btn:hover {
-            background-color: #008c9e;
-        }
-.fixed-image-section {
-    background: url('gps image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: 400px;
-    width: 100%;
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
 
-.fixed-image-section h1 {
-    background-color: white;
-    color: #333;
-    padding: 20px 40px;
-    font-size: 3rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    text-align: center;
-}
+    /* Fixed Image Section */
+    .fixed-image-section {
+      background: url('gps image.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 400px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
+    .fixed-image-section h1 {
+      background-color: white;
+      color: #333;
+      padding: 20px 40px;
+      font-size: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-align: center;
+    }
 
-    </style>
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">Magellan GPS</div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <ul id="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#update">GPS Update</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Magellan GPS</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#update">GPS Update</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div>
-            <h1>Welcome to Magellan GPS Update</h1>
-            <p>Stay ahead with the latest GPS maps and firmware updates</p>
-            <a href="#update" class="btn">Update Now</a>
-        </div>
-    </section>
-
-    <!-- GPS Update Section -->
-<section class="section" id="update">
-    <div class="update-text container">
-        <h2>🛰️ How to Update Magellan GPS</h2>
-        <p>Updating your Magellan GPS ensures that you have the latest maps, speed limits, road changes, and system enhancements. Follow these simple steps:</p>
-        <ul>
-            <li>🔌 Connect your GPS to the computer via USB cable</li>
-            <li>🌐 Download & install Magellan Content Manager</li>
-            <li>🔄 Log in and select your GPS device</li>
-            <li>⬇️ Click on available updates and start downloading</li>
-            <li>✅ Wait for the update to complete and safely eject the device</li>
-        </ul>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div>
+      <h1>Welcome to Magellan GPS Update</h1>
+      <p>Stay ahead with the latest GPS maps and firmware updates</p>
+      <a href="#update" class="btn">Update Now</a>
     </div>
-   
-</section>
-    <section class="fixed-image-section">
+  </section>
+
+  <!-- GPS Update Section -->
+  <section class="section" id="update">
+    <div class="container">
+      <h2>🛰️ How to Update Magellan GPS</h2>
+      <p>Updating your Magellan GPS ensures that you have the latest maps, speed limits, road changes, and system enhancements. Follow these simple steps:</p>
+      <ul>
+        <li>🔌 Connect your GPS to the computer via USB cable</li>
+        <li>🌐 Download & install Magellan Content Manager</li>
+        <li>🔄 Log in and select your GPS device</li>
+        <li>⬇️ Click on available updates and start downloading</li>
+        <li>✅ Wait for the update to complete and safely eject the device</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Fixed Image Section -->
+  <section class="fixed-image-section">
     <h1>Situ Kumar ki jayyyyy</h1>
-</section>
+  </section>
 
+  <!-- Features Section -->
+  <section class="section" id="features" style="background-color: #e3f2fd;">
+    <div class="container">
+      <h2>🚗 Key Features of Magellan GPS</h2>
+      <ul>
+        <li>✔️ Real-time traffic updates</li>
+        <li>✔️ Turn-by-turn voice navigation</li>
+        <li>✔️ 3D landmarks and lane assist</li>
+        <li>✔️ Customizable routes for RV and Trucks</li>
+        <li>✔️ Lifetime map updates</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Features Section -->
-    <section class="section" id="features" style="background-color: #e3f2fd;">
-        <div class="container">
-            <h2>🚗 Key Features of Magellan GPS</h2>
-            <ul>
-                <li>✔️ Real-time traffic updates</li>
-                <li>✔️ Turn-by-turn voice navigation</li>
-                <li>✔️ 3D landmarks and lane assist</li>
-                <li>✔️ Customizable routes for RV and Trucks</li>
-                <li>✔️ Lifetime map updates</li>
-            </ul>
-        </div>
-    </section>
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>📞 Contact Support</h2>
+      <p>If you face any issues with updating your GPS, feel free to reach out to our customer support team.</p>
+      <p><strong>Email:</strong> support@magellangps.com</p>
+      <p><strong>Phone:</strong> 1-800-MAGELLAN</p>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <h2>📞 Contact Support</h2>
-            <p>If you face any issues with updating your GPS, feel free to reach out to our customer support team.</p>
-            <p><strong>Email:</strong> support@magellangps.com</p>
-            <p><strong>Phone:</strong> 1-800-MAGELLAN</p>
-        </div>
-    </section>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Magellan GPS. All rights reserved.</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Magellan GPS. All rights reserved.</p>
-    </footer>
-
-    <!-- JavaScript for Responsive Menu -->
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById("nav-links");
-            navLinks.classList.toggle("show");
-        }
-    </script>
+  <!-- JS for Responsive Menu -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>
