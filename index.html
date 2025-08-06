@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Magellan GPS Update</title>
+  <meta name="description" content="Stay ahead with the latest Magellan GPS updates. Download new maps, firmware, and features for a smoother and safer navigation experience.">
+<meta name="keywords" content="Magellan GPS update, GPS firmware, Magellan map update, GPS navigation, RV GPS update, truck GPS update">
   <style>
     * {
       margin: 0;
@@ -15,22 +17,22 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       scroll-behavior: smooth;
       line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
     }
 
-    /* Navbar */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.9);
       color: #fff;
       padding: 15px 20px;
       z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     nav .logo {
@@ -38,48 +40,39 @@
       font-weight: bold;
     }
 
-    nav ul {
-      list-style: none;
+    .nav-buttons {
       display: flex;
-      gap: 20px;
+      gap: 10px;
     }
 
-    nav ul li a {
-      color: white;
+    .nav-buttons a {
+      padding: 8px 14px;
+      border-radius: 4px;
       text-decoration: none;
-      transition: 0.3s;
+      font-weight: bold;
+      transition: 0.3s ease;
     }
 
-    nav ul li a:hover {
-      color: #00bcd4;
+    .nav-buttons a.update {
+      background-color: #4CAF50;
+      color: white;
     }
 
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
+    .nav-buttons a.update:hover {
+      background-color: #388e3c;
     }
 
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
-      }
-
-      nav ul.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
+    .nav-buttons a.support {
+      background-color: #f44336;
+      color: white;
     }
 
-    /* Hero Section */
+    .nav-buttons a.support:hover {
+      background-color: #c62828;
+    }
+
     .hero {
-      background: url('pppp.jpg') no-repeat center center fixed;
+      background: url('pppp.jpg') no-repeat center center;
       background-size: cover;
       height: 100vh;
       display: flex;
@@ -88,6 +81,7 @@
       text-align: center;
       color: white;
       padding: 20px;
+      flex-direction: column;
     }
 
     .hero h1 {
@@ -96,7 +90,9 @@
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      max-width: 600px;
     }
 
     .btn {
@@ -107,23 +103,20 @@
       border-radius: 5px;
       font-size: 1rem;
       text-decoration: none;
-      margin-top: 20px;
-      display: inline-block;
     }
 
     .btn:hover {
       background-color: #008c9e;
     }
 
-    /* Section */
     .section {
       padding: 80px 20px;
-      background-color: #f5f5f5;
     }
 
     .section h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      color: #333;
     }
 
     .container {
@@ -131,25 +124,43 @@
       margin: auto;
     }
 
-    .section ul {
-      padding-left: 20px;
-      line-height: 2;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
-    /* Fixed Image Section (Background Only) */
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
     .fixed-image-section {
       background: url('gpsupdate.jpg') no-repeat center center fixed;
       background-size: cover;
-      height: 400px;
-      width: 100%;
+      height: 300px;
     }
 
-    /* Footer */
     footer {
       background-color: #333;
       color: #fff;
       padding: 30px 20px;
       text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -158,63 +169,84 @@
   <!-- Navbar -->
   <nav>
     <div class="logo">Magellan GPS</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <ul id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#update">GPS Update</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-buttons">
+      <a href="https://navisolve.com/" class="update">Update</a>
+      <a href="https://navisolve.com/" class="support">Support</a>
+    </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div>
-      <h1>Welcome to Magellan GPS Update</h1>
-      <p>Stay ahead with the latest GPS maps and firmware updates</p>
-      <a href="#update" class="btn">Update Now</a>
-    </div>
+  <section class="hero">
+    <h1>Welcome to Magellan GPS Update</h1>
+    <p>Stay ahead with the latest maps, road changes, and navigation enhancements for your Magellan device.</p>
+    <a href="https://navisolve.com/" class="btn">Start Update</a>
   </section>
 
-  <!-- GPS Update Section -->
-  <section class="section" id="update">
+  <!-- Why Update Section -->
+  <section class="section" style="background-color: #fff;">
     <div class="container">
-      <h2>🛰️ How to Update Magellan GPS</h2>
-      <p>Updating your Magellan GPS ensures that you have the latest maps, speed limits, road changes, and system enhancements. Follow these simple steps:</p>
-      <ul>
-        <li>🔌 Connect your GPS to the computer via USB cable</li>
-        <li>🌐 Download & install Magellan Content Manager</li>
-        <li>🔄 Log in and select your GPS device</li>
-        <li>⬇️ Click on available updates and start downloading</li>
-        <li>✅ Wait for the update to complete and safely eject the device</li>
-      </ul>
+      <h2>📌 Why You Should Update Your GPS</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>🗺️ Latest Maps</h3>
+          <p>Ensure your GPS has the newest roads, POIs, and accurate directions.</p>
+        </div>
+        <div class="card">
+          <h3>🚦 Traffic Alerts</h3>
+          <p>Real-time rerouting helps you avoid traffic and arrive faster.</p>
+        </div>
+        <div class="card">
+          <h3>🔧 Performance Boost</h3>
+          <p>Firmware updates improve speed, responsiveness, and stability.</p>
+        </div>
+        <div class="card">
+          <h3>🚛 RV/Truck Routing</h3>
+          <p>Special routing for large vehicles helps avoid low bridges and restricted roads.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Fixed Image Background Section (No Text) -->
+  <!-- How to Update Section -->
+  <section class="section" style="background-color: #e3f2fd;">
+    <div class="container">
+      <h2>🔄 How to Update Your Magellan GPS</h2>
+      <ol style="max-width: 700px; margin: auto; font-size: 1.1rem; line-height: 2;">
+        <li>Connect your Magellan GPS to your computer via USB.</li>
+        <li>Download and install the Magellan Content Manager.</li>
+        <li>Launch the app and log in with your account.</li>
+        <li>Check for available updates and click "Update".</li>
+        <li>Safely eject your device once the update is complete.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Fixed Background Image Section -->
   <section class="fixed-image-section"></section>
 
   <!-- Features Section -->
-  <section class="section" id="features" style="background-color: #e3f2fd;">
+  <section class="section">
     <div class="container">
-      <h2>🚗 Key Features of Magellan GPS</h2>
-      <ul>
-        <li>✔️ Real-time traffic updates</li>
-        <li>✔️ Turn-by-turn voice navigation</li>
-        <li>✔️ 3D landmarks and lane assist</li>
-        <li>✔️ Customizable routes for RV and Trucks</li>
-        <li>✔️ Lifetime map updates</li>
-      </ul>
+      <h2>✨ Features of Magellan GPS</h2>
+      <div class="grid">
+        <div class="card"><h3>✔️ Voice Navigation</h3><p>Turn-by-turn spoken directions to keep your eyes on the road.</p></div>
+        <div class="card"><h3>✔️ Lane Assist</h3><p>Visual guidance helps you stay in the correct lane.</p></div>
+        <div class="card"><h3>✔️ 3D Landmarks</h3><p>Easier navigation with visible landmarks on screen.</p></div>
+        <div class="card"><h3>✔️ Lifetime Map Updates</h3><p>Stay current without extra charges.</p></div>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section class="section" id="contact">
+  <section class="section" style="background-color: #e3f2fd;">
     <div class="container">
       <h2>📞 Contact Support</h2>
-      <p>If you face any issues with updating your GPS, feel free to reach out to our customer support team.</p>
-      <p><strong>Email:</strong> support@magellangps.com</p>
-      <p><strong>Phone:</strong> 1-800-MAGELLAN</p>
+      <p style="text-align:center;">Need help? Reach out to our friendly support team.</p>
+      <div style="max-width: 500px; margin: auto; text-align: center; font-size: 1.1rem;">
+        <p><strong>Email:</strong> support@magellangps.com</p>
+        <p><strong>Phone:</strong> 1-800-MAGELLAN</p>
+        <p><strong>Website:</strong> <a href="https://navisolve.com/" target="_blank">https://navisolve.com/</a></p>
+      </div>
     </div>
   </section>
 
@@ -222,14 +254,6 @@
   <footer>
     <p>&copy; 2025 Magellan GPS. All rights reserved.</p>
   </footer>
-
-  <!-- JavaScript for Menu Toggle -->
-  <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById("nav-links");
-      navLinks.classList.toggle("show");
-    }
-  </script>
 
 </body>
 </html>
